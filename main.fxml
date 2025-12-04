@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="br.com.biblioteca.ui.controllers.MainController">
+
+    <top>
+        <VBox spacing="6" padding="10">
+            <HBox spacing="6">
+                <TextField fx:id="titleField" promptText="Título" HBox.vgrow="ALWAYS"/>
+                <TextField fx:id="authorField" promptText="Autor"/>
+                <ComboBox fx:id="genreBox" prefWidth="150"/>
+                <Button text="Adicionar Livro" onAction="#onAddBook"/>
+            </HBox>
+
+            <HBox spacing="6">
+                <TextField fx:id="memberNameField" promptText="Nome do Membro"/>
+                <TextField fx:id="memberEmailField" promptText="Email"/>
+                <Button text="Adicionar Membro" onAction="#onAddMember"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <SplitPane orientation="HORIZONTAL">
+            <VBox spacing="6" padding="10">
+                <Label text="Livros"/>
+                <ListView fx:id="bookListView" prefWidth="450" />
+                <HBox spacing="6">
+                    <Button text="Emprestar" onAction="#onLendBook"/>
+                    <Button text="Devolver" onAction="#onReturnBook"/>
+                    <Button text="Atualizar" onAction="#onRefresh"/>
+                </HBox>
+            </VBox>
+
+            <VBox spacing="6" padding="10">
+                <Label text="Membros"/>
+                <ListView fx:id="memberListView" prefWidth="300" />
+                <Label text="Empréstimos"/>
+                <ListView fx:id="loanListView" prefHeight="200"/>
+            </VBox>
+        </SplitPane>
+    </center>
+
+</BorderPane>
